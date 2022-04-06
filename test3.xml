@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resValidateFakturPm>
+    <kdJenisTransaksi>01</kdJenisTransaksi>
+    <fgPengganti>0</fgPengganti>
+    <nomorFaktur>0072100764247</nomorFaktur>
+    <tanggalFaktur>04/01/2022</tanggalFaktur>
+    <npwpPenjual>027988971508000</npwpPenjual>
+    <namaPenjual>KOP SENOPATI</namaPenjual>
+    <alamatPenjual>JL PAHLAWAN NO 10 , KOTA SEMARANG</alamatPenjual>
+    <npwpLawanTransaksi>010712461093000</npwpLawanTransaksi>
+    <namaLawanTransaksi>TELEKOMUNIKASI INDONESIA INTERNATIONAL</namaLawanTransaksi>
+    <alamatLawanTransaksi>JL. GATOT SUBROTO KAV.38 GD MENARA JAMSOSTEK TOWER UTARA LT.24 JAKARTA SELATAN 12710</alamatLawanTransaksi>
+    <jumlahDpp>1000000</jumlahDpp>
+    <jumlahPpn>100000</jumlahPpn>
+    <jumlahPpnBm>0</jumlahPpnBm>
+    <statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
+    <statusFaktur>Faktur Pajak Normal</statusFaktur>
+    <detailTransaksi>
+        <nama>Jasa Layanan Telekomunikasi </nama>
+        <hargaSatuan>1000000</hargaSatuan>
+        <jumlahBarang>1</jumlahBarang>
+        <hargaTotal>1000000</hargaTotal>
+        <diskon>0</diskon>
+        <dpp>1000000</dpp>
+        <ppn>100000</ppn>
+        <tarifPpnbm>0</tarifPpnbm>
+        <ppnbm>0</ppnbm>
+    </detailTransaksi>
+</resValidateFakturPm>
