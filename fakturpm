@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resValidateFakturPm>
+  <kdJenisTransaksi>03</kdJenisTransaksi>
+  <fgPengganti>0</fgPengganti>
+  <nomorFaktur>0032172837054</nomorFaktur>
+  <tanggalFaktur>04/01/2021</tanggalFaktur>
+  <npwpPenjual>032753154014000</npwpPenjual>
+  <namaPenjual>PT TELKOM AKSES</namaPenjual>
+  <alamatPenjual>GEDUNG TELKOM JAKARTA BARAT, JL LETJEN S. PARMAN KAV. 8 , JAKARTA BARAT</alamatPenjual>
+  <npwpLawanTransaksi>010000131093000</npwpLawanTransaksi>
+  <namaLawanTransaksi>PT. TELEKOMUNIKASI INDONESIA, Tbk</namaLawanTransaksi>
+  <alamatLawanTransaksi>JL. JAPATI NO. 1 BANDUNG</alamatLawanTransaksi>
+  <jumlahDpp>1198795499</jumlahDpp>
+  <jumlahPpn>119879550</jumlahPpn>
+  <jumlahPpnBm>0</jumlahPpnBm>
+  <statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
+  <statusFaktur>Faktur Pajak Normal</statusFaktur>
+  <referensi>10031/INV/PTTA/2021</referensi>
+  <detailTransaksi>
+    <nama>K.TEL.007345/HK.810/R6W-6C100000/2020 CAPEX FTTH PT2 SIMPLE DAN NOT SIMPLE TAHAP-3 2020 WITEL KALTARA</nama>
+    <hargaSatuan>1198795499</hargaSatuan>
+    <jumlahBarang>1</jumlahBarang>
+    <hargaTotal>1198795499</hargaTotal>
+    <diskon>0</diskon>
+    <dpp>770000000</dpp>
+    <ppn>77000000</ppn>
+    <tarifPpnbm>0</tarifPpnbm>
+    <ppnbm>0</ppnbm>
+  </detailTransaksi>
+</resValidateFakturPm>
