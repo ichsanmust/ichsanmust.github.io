@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resValidateFakturPm>
+    <kdJenisTransaksi>01</kdJenisTransaksi>
+    <fgPengganti>0</fgPengganti>
+    <nomorFaktur>0072100764278</nomorFaktur>
+    <tanggalFaktur>01/07/2022</tanggalFaktur>
+    <npwpPenjual>010000727051000</npwpPenjual>
+    <namaPenjual>PT Pupuk Kalimantan Timur</namaPenjual>
+    <alamatPenjual>Test</alamatPenjual>
+    <npwpLawanTransaksi>010000131093000</npwpLawanTransaksi>
+    <namaLawanTransaksi>PT.TELKOM INDONESIA (PERSERO) TBK</namaLawanTransaksi>
+    <alamatLawanTransaksi>JAPATI Blok -- No.1 RT:000 RW:000 Kel.SADANGSERANG Kec.COBLONG Kota/Kab.KOTA BANDUNG JAWA BARAT 00000</alamatLawanTransaksi>
+    <jumlahDpp>10000000</jumlahDpp>
+    <jumlahPpn>1100000</jumlahPpn>
+    <jumlahPpnBm>0</jumlahPpnBm>
+    <statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
+    <statusFaktur>Faktur Pajak Normal</statusFaktur>
+    <detailTransaksi>
+        <nama>Jasa Layanan Telekomunikasi </nama>
+        <hargaSatuan>10000000</hargaSatuan>
+        <jumlahBarang>1</jumlahBarang>
+        <hargaTotal>10000000</hargaTotal>
+        <diskon>0</diskon>
+        <dpp>10000000</dpp>
+        <ppn>1100000</ppn>
+        <tarifPpnbm>0</tarifPpnbm>
+        <ppnbm>0</ppnbm>
+    </detailTransaksi>
+</resValidateFakturPm>
