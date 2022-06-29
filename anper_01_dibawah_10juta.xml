@@ -10,19 +10,19 @@
     <npwpLawanTransaksi>010000131093000</npwpLawanTransaksi>
     <namaLawanTransaksi>PT.TELKOM INDONESIA (PERSERO) TBK</namaLawanTransaksi>
     <alamatLawanTransaksi>JAPATI Blok -- No.1 RT:000 RW:000 Kel.SADANGSERANG Kec.COBLONG Kota/Kab.KOTA BANDUNG JAWA BARAT 00000</alamatLawanTransaksi>
-    <jumlahDpp>10000000</jumlahDpp>
-    <jumlahPpn>1100000</jumlahPpn>
+    <jumlahDpp>1000000</jumlahDpp>
+    <jumlahPpn>110000</jumlahPpn>
     <jumlahPpnBm>0</jumlahPpnBm>
     <statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
     <statusFaktur>Faktur Pajak Normal</statusFaktur>
     <detailTransaksi>
         <nama>Jasa Layanan Telekomunikasi </nama>
-        <hargaSatuan>10000000</hargaSatuan>
+        <hargaSatuan>1000000</hargaSatuan>
         <jumlahBarang>1</jumlahBarang>
-        <hargaTotal>10000000</hargaTotal>
+        <hargaTotal>1000000</hargaTotal>
         <diskon>0</diskon>
-        <dpp>10000000</dpp>
-        <ppn>1100000</ppn>
+        <dpp>1000000</dpp>
+        <ppn>110000</ppn>
         <tarifPpnbm>0</tarifPpnbm>
         <ppnbm>0</ppnbm>
     </detailTransaksi>
