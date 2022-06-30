@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resValidateFakturPm>
+<kdJenisTransaksi>01</kdJenisTransaksi>
+<fgPengganti>0</fgPengganti>
+<nomorFaktur>0052299790981</nomorFaktur>
+<tanggalFaktur>01/07/2022</tanggalFaktur>
+<npwpPenjual>032753154014000</npwpPenjual>
+<namaPenjual>PT. Telkom Akses</namaPenjual>
+<alamatPenjual>Gedung Telkom Jakarta Barat, Jl. Letjen S. Parman Kav.8 Tomang Grogol Petamburan, Jakarta Barat DKI Jakarta 11440</alamatPenjual>
+<npwpLawanTransaksi>010000131093000</npwpLawanTransaksi>
+<namaLawanTransaksi>PT. TELKOM INDONESIA (PERSERO) TBK</namaLawanTransaksi>
+<alamatLawanTransaksi>JL MERDEKA   NO. 26   RT/RW : 005/004   KEL. KRANJI   KEC. PURWOKERTO TIMUR   KAB. BANYUMAS -  JAWA TENGAH </alamatLawanTransaksi>
+<jumlahDpp>502454004</jumlahDpp>
+<jumlahPpn>55269940</jumlahPpn>
+<jumlahPpnBm>0</jumlahPpnBm>
+<statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
+<statusFaktur>Faktur Pajak Normal</statusFaktur>
+<referensi>11857/INV/PTTA/2022 </referensi>
+<detailTransaksi>
+<nama>K.TEL.001257/HK.810/R4W-4B100000/2022 PWT-PEKERJAAN CAPEX QE AKSES SEMESTER-1 TAHAP-3 WITEL PURWOKERTO TAHUN 2022 </nama>
+<hargaSatuan>502454004</hargaSatuan>
+<jumlahBarang>1</jumlahBarang>
+<hargaTotal>502454004</hargaTotal>
+<diskon>0</diskon>
+<dpp>502454004</dpp>
+<ppn>55269940</ppn>
+<tarifPpnbm>0</tarifPpnbm>
+<ppnbm>0</ppnbm>
+</detailTransaksi>
+</resValidateFakturPm>
