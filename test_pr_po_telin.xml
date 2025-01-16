@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resValidateFakturPm>
+	<kdJenisTransaksi>03</kdJenisTransaksi>
+	<fgPengganti>0</fgPengganti>
+	<nomorFaktur>0092458153596</nomorFaktur>
+	<tanggalFaktur>19/11/2024</tanggalFaktur>
+	<npwpPenjual>024264954056000</npwpPenjual>
+	<namaPenjual>PT ASTRA GRAPHIA INFORMATION TECHNOLOGY</namaPenjual>
+	<alamatPenjual>JL KRAMAT RAYA NO 43 RT 003 RW 004 , JAKARTA PUSAT</alamatPenjual>
+	<npwpLawanTransaksi>010712461093000</npwpLawanTransaksi>
+	<namaLawanTransaksi>PT TELEKOMUNIKASI INDONESIA INTERNATIONAL</namaLawanTransaksi>
+	<alamatLawanTransaksi>Gd. Telkom Landmark Tower II Lt. 16&amp;17 Jl. Jend. Gatot Subroto Kav. 52 Kuningan Barat Mampang Prapatan Jakarta Selatan, DKI Jakarta 12710</alamatLawanTransaksi>
+	<jumlahDpp>64039500</jumlahDpp>
+	<jumlahPpn>7044345</jumlahPpn>
+	<jumlahPpnBm>0</jumlahPpnBm>
+	<statusApproval>Faktur Valid, Sudah Diapprove oleh DJP</statusApproval>
+	<statusFaktur>Faktur Pajak Normal</statusFaktur>
+	<referensi>REF TO INVOICE : 7500049112</referensi>
+	<detailTransaksi>
+		<nama>Pengadaan Barang dan/atau Jasa Managed Services (MS) Firewall Palo Alto</nama>
+		<hargaSatuan>64039500</hargaSatuan>
+		<jumlahBarang>1</jumlahBarang>
+		<hargaTotal>64039500</hargaTotal>
+		<diskon>0</diskon>
+		<dpp>64039500</dpp>
+		<ppn>7044345</ppn>
+		<tarifPpnbm>0</tarifPpnbm>
+		<ppnbm>0</ppnbm>
+	</detailTransaksi>
+</resValidateFakturPm>
