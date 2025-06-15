@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trade Tracker</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .trade-card {
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .trade-card.closed {
+            background-color: #e0e0e0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .form-check-inline {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+            <h2>Trade Tracker</h2>
+            <input type="date" id="filterDate" class="form-control w-auto mb-2" />
+        </div>
+
+        <div class="mb-3 d-flex gap-2 flex-wrap">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add Trade</button>
+            <button class="btn btn-success" id="downloadBtn">Download JSON</button>
+            <label class="btn btn-outline-secondary mb-0">
+                Upload JSON <input type="file" id="uploadFile" hidden accept=".json">
+            </label>
+        </div>
+
+        <div id="tradeList"></div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Trade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label>Pair</label>
+                        <input type="text" id="pair" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Type</label>
+                        <select id="type" class="form-select">
+                            <option value="short">Short</option>
+                            <option value="long">Long</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveTrade">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Trade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label>Edit Pair</label>
+                        <input type="text" id="editPair" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Edit Type</label>
+                        <select id="editType" class="form-select">
+                            <option value="short">Short</option>
+                            <option value="long">Long</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="updateTrade">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery-3.6.4.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script>
+        let tradeData = [];
+        let currentEditIndex = -1;
+        const fields = ["move_sl_to_entry", "tp1", "tp2", "tp3", "r1", "r2", "r3", "close_at_be", "hit_sl", "closed"];
+
+        function getStorageKey() {
+            const date = $("#filterDate").val() || new Date().toISOString().split('T')[0];
+            return "trade_data_" + date.replaceAll("-", "_");
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem(getStorageKey(), JSON.stringify(tradeData));
+        }
+
+        function loadFromLocalStorage() {
+            const raw = localStorage.getItem(getStorageKey());
+            tradeData = raw ? JSON.parse(raw) : [];
+        }
+
+        function renderTrades() {
+            const container = $("#tradeList").empty();
+
+            tradeData.forEach((trade, index) => {
+
+                if (trade.type == 'short') {
+                    var badge = 'badge text-bg-danger';
+                } else {
+                    var badge = 'badge text-bg-success';
+                }
+
+                const card = $(`<div class="trade-card ${trade.closed ? 'closed' : ''}">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <strong>${trade.pair}</strong> <span class="${badge}">${trade.type}</span>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-outline-primary me-1" onclick="editTrade(${index})">Edit</button>
+            <button class="btn btn-sm btn-outline-danger" onclick="deleteTrade(${index})">Delete</button>
+          </div>
+        </div>
+      </div>`);
+
+                fields.forEach(field => {
+                    const checkboxId = `chk_${field}_${index}`;
+                    const checkbox = $(`
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="${checkboxId}" ${trade[field] ? 'checked' : ''}>
+            <label class="form-check-label" for="${checkboxId}">${field.replaceAll('_', ' ').toUpperCase()}</label>
+          </div>
+        `);
+                    checkbox.find("input").on("change", function () {
+                        trade[field] = $(this).is(":checked");
+                        saveToLocalStorage();
+                        renderTrades(); // update warna jika "closed" diubah
+                    });
+                    card.append(checkbox);
+                });
+
+                container.append(card);
+            });
+        }
+
+        function editTrade(index) {
+            currentEditIndex = index;
+            const trade = tradeData[index];
+            $("#editPair").val(trade.pair);
+            $("#editType").val(trade.type);
+            $("#editModal").modal("show");
+        }
+
+        $("#updateTrade").on("click", function () {
+            const pair = $("#editPair").val().trim();
+            const type = $("#editType").val();
+            if (!pair) return alert("Pair wajib diisi.");
+
+            tradeData[currentEditIndex].pair = pair;
+            tradeData[currentEditIndex].type = type;
+            saveToLocalStorage();
+            $("#editModal").modal("hide");
+            renderTrades();
+        });
+
+        function deleteTrade(index) {
+            if (!confirm("Yakin ingin menghapus trade ini?")) return;
+            tradeData.splice(index, 1);
+            saveToLocalStorage();
+            renderTrades();
+        }
+
+        $(document).ready(function () {
+            const today = new Date().toISOString().split('T')[0];
+            $("#filterDate").val(today);
+
+            $("#saveTrade").on("click", function () {
+                const pair = $("#pair").val().trim();
+                const type = $("#type").val();
+                if (!pair) return alert("Pair wajib diisi.");
+
+                const newTrade = { pair, type };
+                fields.forEach(f => newTrade[f] = false);
+                tradeData.push(newTrade);
+                saveToLocalStorage();
+                $("#addModal").modal("hide");
+                $("#pair").val("");
+                renderTrades();
+            });
+
+            $("#downloadBtn").on("click", function () {
+                const blob = new Blob([JSON.stringify(tradeData, null, 2)], { type: "application/json" });
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = getStorageKey() + ".json";
+                link.click();
+            });
+
+
+            $("#uploadFile").on("change", function (e) {
+                const file = e.target.files[0];
+                e.target.value = ""; // Reset input agar event tetap jalan meskipun file sama
+
+                if (!file) return;
+
+                const filename = file.name;
+                const match = filename.match(/trade_data_(\d{4})_(\d{2})_(\d{2})\.json/i);
+
+                if (!match) {
+                    alert("Nama file tidak valid. Harus seperti: trade_data_YYYY_MM_DD.json");
+                    return;
+                }
+
+                const fileDate = `${match[1]}-${match[2]}-${match[3]}`; // yyyy-mm-dd
+                const currentFilterDate = $("#filterDate").val();
+
+                if (fileDate !== currentFilterDate) {
+                    alert(`Tanggal file (${fileDate}) tidak sama dengan tanggal yang sedang dipilih (${currentFilterDate}). Ganti tanggal filter atau upload file yang sesuai.`);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        if (!Array.isArray(data)) throw "Data bukan array.";
+                        tradeData = data;
+                        saveToLocalStorage();
+                        renderTrades();
+                    } catch (err) {
+                        alert("File JSON tidak valid.");
+                    }
+                };
+                reader.readAsText(file);
+            });
+
+
+            $("#filterDate").on("change", function () {
+                loadFromLocalStorage();
+                renderTrades();
+            });
+
+            loadFromLocalStorage();
+            renderTrades();
+        });
+    </script>
+</body>
+
+</html>
